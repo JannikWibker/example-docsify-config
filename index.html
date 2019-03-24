@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example Docsify Config</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jannik.ml/static/docsify/lib/themes/vue.4.7.0.css">
+  <link rel="stylesheet" href="/static/docsify/lib/themes/dark.4.9.1.css">
+  <link rel="stylesheet" href="https://cdn.jannik.ml/static/katex/dist/katex.min.0.10.1-rc.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+  <link rel="manifest" href="/static/manifest.json">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+  <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#42b983">
+  <meta name="msapplication-TileColor" content="#42b983">
+  <meta name="theme-color" content="#ffffff">
+  <style>.sidebar-toggle-button span{width:24px!important;height:3px!important;margin-bottom:6px!important;}.markdown-section h1{font-size:2.25rem;}.markdown-section pre>code{padding:2.2em 0px;}
+@keyframes show{0%,50%{opacity:0;}100%{opacity:1;}}@keyframes hide{0%,50%{opacity:1;}100%{opacity:0;}}
+.qr-wrapper{float:left;width:24px;height:24px;}
+.qr-wrapper>svg{position:relative;margin-top:8px;right:4px;fill:#34495e;}
+.dark .qr-wrapper>svg{position:relative;margin-top:8px;right:4px;fill:#a0b5ca;}
+.dark .qr-wrapper>canvas{border:1px solid rgba(255,255,255,.93);}
+.dark .sidebar {z-index:3!important;}
+.dark img:not([class~=medium-zoom-image--open]){filter: invert(100%);}
+.qr-wrapper:hover>svg{fill:var(--theme-color,#42b983);}
+.qr-wrapper::before{content:'copied';right:100%;transition: all .25s ease 0.25s;margin-top:7px;padding:5px;border-radius:3px;font-size:14px;position:absolute;display:block;background-color:white;border:1px solid rgba(0,0,0,.07);z-index:5;transform: translateX(120%) scale(0);}
+.qr-wrapper.copied:before{transform: translateX(0) scale(1);}
+.qr-wrapper>canvas{position:absolute;left:-64px;margin-top:4px;z-index:4;border:1px solid rgba(0,0,0,.07);}
+.qr-wrapper>.qr-corner{width:14px;height:14px;position:relative;top:-4.5px;z-index:5;transform:rotate(45deg);border-left:1px solid rgba(0,0,0,.07);border-top: 1px solid rgba(0,0,0,.07);background-color:white;clip-path: polygon(100% 0, 100% 10%, 10% 100%, 0 100%, 0 0);}
+.qr-wrapper>canvas,.qr-wrapper>.qr-corner{opacity: 0;display:none;}
+.qr-wrapper:hover>canvas,.qr-wrapper:hover>.qr-corner{display: inline-block;animation: show 1s ease-out forwards;}
+.qr-heading-1 {margin-top:4px}
+.qr-heading-2 {margin-top:0px;}
+.qr-heading-3 {margin-top:-2px;}
+.qr-heading-4 {margin-top:-5px;}.qr-heading-4>svg{transform:scale(0.8);}
+.qr-heading-5 {margin-top:-8px;}.qr-heading-5>svg{transform:scale(0.7);right:2px;}
+.qr-heading-6 {margin-top:-9px;}.qr-heading-6>svg{transform:scale(0.7);}
+.pagination-item a{color:currentColor!important;}
+.markdown-section ul>li>ul{margin-top:0!important;margin-bottom:0!important}
+.markdown-section em { color: #8727d1; }
+body.dark{--theme-color:#4a54c7;--background-color:#191919;--sidebar-nav-accent-color-1: #303141; --sidebar-nav-accent-color-2: #1c1844;}
+body{--theme-color: #4a54c7; --sidebar-nav-accent-color-1: #e7e7eb; --sidebar-nav-accent-color-2: #eff1f3; } /* #7f8c8d #42b983 */
+body .theme-chooser {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 0px;
+    right: 18px;
+    z-index: 1;
+  }
+
+  body .theme-chooser .svg-theme {
+    margin: 4px;
+    color: slateblue;
+  }
+
+  body.dark .theme-chooser .svg-theme {
+    margin: 4px;
+    color: yellow;
+  }
+
+  body.medium-zoom--opened .theme-chooser {
+    display: none;
+  }
+
+  body:not(.dark) .theme-chooser .enable-light-theme-a {
+    display: none;
+  }
+
+  body.dark .theme-chooser .enable-dark-theme-a {
+    display: none;
+  }
+
+@media screen and (max-width: 768px) {
+  .qr-wrapper>canvas{left:10px;}
+  .qr-wrapper::before{left:40px;right:unset;transform:translateX(-120%) scale(0);}
+}
+@media print {
+
+  body .theme-chooser {
+    display: none;
+  }
+
+  .markdown-section {
+    max-width: 90vw;
+  }
+
+  .content {
+    left: 0;
+    padding-top: 0;
+  }
+
+  .docsify-pagination-container {
+    display: none!important;
+  }
+
+  .qr-wrapper {
+    display: none;
+  }
+
+  .markdown-section code {
+    filter: grayscale(1)
+  }
+
+  .markdown-section pre>code {
+    white-space: pre-wrap;
+  }
+}
+</style>
+</head>
+<body class="">
+  <div id="app"></div>
+  <script>
+  (() => {
+    const qr_codes = {
+
+    }
+
+    const copyToClipboard = str => {
+      const el = document.createElement('textarea')
+      el.value = str
+      el.setAttribute('readonly', '')
+      el.style.position = 'absolute'
+      el.style.left = '-9999px'
+      document.body.appendChild(el)
+      const selected =
+        document.getSelection().rangeCount > 0
+          ? document.getSelection().getRangeAt(0)
+          : false
+      el.select()
+      document.execCommand('copy')
+      document.body.removeChild(el)
+      if (selected) {
+        document.getSelection().removeAllRanges()
+        document.getSelection().addRange(selected)
+      }
+    }
+
+    const decodeHtml = html => {
+      let txt = document.createElement("textarea")
+      txt.innerHTML = html
+      return txt.value
+    }
+
+    `
+    <div class="">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </div>
+    `
+
+    window.$toggleTheme = (theme) => {
+        if(theme === 'dark') {
+          window.document.body.classList.add('dark')
+          localStorage.setItem('docsify.theme', 'dark')
+        } else if(theme === 'light') {
+          window.document.body.classList.remove('dark')
+          localStorage.setItem('docsify.theme', 'light')
+        } else {
+          window.document.body.classList.toggle('dark')
+          localStorage.setItem('docsify.theme', localStorage.getItem('docsify.theme') === 'dark' ? 'light' : 'dark')
+        }
+    }
+
+    if(localStorage.getItem('docsify.theme')) {
+        $toggleTheme(localStorage.getItem('docsify.theme'))
+      } else {
+        $toggleTheme('light')
+      }
+
+    window.$docsify = {
+      name: 'Example Docsify Config',
+      loadSidebar: true,
+      maxLevel: 2,
+      repo: '',
+      qrcode: true,
+      latex: true,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/subject': '/subject/subject',
+        '/subject/': '/subject/subject',
+      },
+      pagination: {
+        previousText: 'previous page',
+        nextText: 'next page'
+      },
+      markdown: {
+        renderer: {
+          heading: (text, level, raw) => {
+            const qrcode = window.$docsify.qrcode !== null ? window.$docsify.qrcode : false
+            const escaped_text = Docsify.slugify(text)
+            const link = window.location.href + '?id=' + escaped_text
+
+            const heading = `
+<h${level} class="heading" id="${escaped_text}">
+  <a class="anchor" data-id="${text}" href="${window.location.hash}?id=${escaped_text}">
+    <span>${text}</span>
+  </a>
+</h${level}>
+`
+            if(qrcode) {
+              QRCode.toCanvas(link, (err, canvas) => {
+                canvas.style.width = '180px'
+                canvas.style.height = '180px'
+                qr_codes[escaped_text] = { el: canvas, link: link }
+              })
+
+              return (
+                `<div>
+                  <div class="qr-wrapper qr-heading-${level}" id="qr-${escaped_text}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+                    </svg>
+                    <span class="qr-corner"></span>
+                  </div>
+                  ${heading}
+                  </div>`
+              )
+            } else {
+              return heading
+            }
+          }
+        }
+      },
+      plugins: [
+        hook => hook.mounted(() => {
+          const themeChooser = document.createElement('div')
+          themeChooser.classList.add('theme-chooser')
+          themeChooser.innerHTML = `
+            <a class="enable-dark-theme-a" tabindex="0" onclick="$toggleTheme()">
+            <svg class="svg-theme enable-dark-theme" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </a>
+          <a class="enable-light-theme-a" tabindex="0"  onclick="$toggleTheme()">
+            <svg class="svg-theme enable-light-theme" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </a>
+          `
+          document.querySelector('main').insertBefore(themeChooser, document.querySelector('main').firstChild)
+        }),
+        (hook, {config}) => hook.afterEach((content, next) => {
+          if(config.latex) {
+            const doc = new DOMParser().parseFromString(content, 'text/html')
+
+            Array.from(doc.querySelectorAll('p, th, td, li'))
+              .forEach(x => x.innerHTML = x.innerHTML.replace(/\$\$?([\s\S]*?)\$\$?/g, (all, code) => {
+                code = decodeHtml(code.replace(/<\/?em>/g, '*').replace(/<\/?strong>/g, '**'))
+                const startsWith = all.startsWith('$$')
+                const endsWith = all.endsWith('$$')
+                if((startsWith && endsWith) || (!startsWith && !endsWith)) {
+                  return katex.renderToString(code, {displayMode: startsWith, macros: {
+                    '\\pmatrix': '\\begin{pmatrix}#1\\end{pmatrix}',
+                    '\\bmatrix': '\\begin{bmatrix}#1\\end{bmatrix}',
+                    '\\vmatrix': '\\begin{vmatrix}#1\\end{vmatrix}',
+                    '\\Vmatrix': '\\begin{Vmatrix}#1\\end{Vmatrix}',
+                    '\\Bmatrix': '\\begin{Bmatrix}#1\\end{Bmatrix}',
+                    '\\matrix': '\\begin{matrix}#1\\end{matrix}',
+                    '\\array': '\\begin{array}#1\\end{array}',
+                    '\\qeq': '\\stackrel{?}{=}',
+                    '\\independs': '\\mathrlap{\\bot}\\;\\bot',
+                    '\\depends': '\\mathrlap{\\top}\\;\\top',
+                    '\\P': '\\mathbb{P}',
+                    '\\plane': '\\epsilon',
+                    '\\plane_': '\\epsilon_{#1}'
+                  }})
+                } else {
+                  console.warn('Error: mismatching dollar signs ($) in math expression, ignoring math expression')
+                  return all
+                }
+              }))
+
+            next(doc.body.innerHTML)
+          } else {
+            next(content)
+          }
+        }),
+        hook => hook.doneEach(() =>
+          Object.keys(qr_codes).forEach(key => {
+            const el = document.querySelector('#qr-' + key)
+            if(!el) return
+            el.firstElementChild.addEventListener('click', ((link) => {
+              copyToClipboard(link)
+              el.classList.toggle('copied')
+              setTimeout(() => el.classList.toggle('copied'), 1500)
+            }).bind(this, qr_codes[key].link))
+            el.appendChild(qr_codes[key].el)
+        }))
+      ]
+    }
+  })()
+  </script>
+  <script src="https://cdn.jannik.ml/static/qrcode/qrcode.min.js"></script>
+  <script src="https://cdn.jannik.ml/static/docsify/lib/docsify.min.4.9.3.js"></script>
+  <script src="https://cdn.jannik.ml/static/prismjs/components/prism-php.min.1.15.0.js"></script>
+  <script src="https://cdn.jannik.ml/static/prismjs/components/prism-sql.min.1.15.0.js"></script>
+  <script src="https://cdn.jannik.ml/static/prismjs/components/prism-asm6502.min.1.15.0.js"></script>
+  <script src="https://cdn.jannik.ml/static/prismjs/components/prism-clike.min.1.15.0.js"></script>
+  <script src="https://cdn.jannik.ml/static/prismjs/components/prism-c.min.1.15.0.js"></script>
+  <script src="https://cdn.jannik.ml/static/prismjs/components/prism-javascript.min.1.15.0.js"></script>
+  <script src="https://cdn.jannik.ml/static/docsify/lib/plugins/emoji.min.4.9.1.js"></script>
+  <script src="https://cdn.jannik.ml/static/docsify/lib/plugins/search.min.4.9.0.js"></script>
+  <script src="https://cdn.jannik.ml/static/docsify/lib/plugins/zoom-image.min.4.8.0.js"></script>
+  <script src="https://cdn.jannik.ml/static/docsify-pagination/dist/docsify-pagination.min.2.3.4.js"></script>
+  <script src="https://cdn.jannik.ml/static/docsify-copy-code/docsify-copy-code.min.2.0.2.js"></script>
+  <script src="https://cdn.jannik.ml/static/docsify-sidebar-collapse/docsify-sidebar-collapse.min.4.9.2.js"></script>
+  <script src="https://cdn.jannik.ml/static/katex/dist/katex.min.0.10.1-rc.js"></script>
+</body>
+</html>
